@@ -1,0 +1,31 @@
+version: "3"
+    
+tasks:
+    start-lab:
+        desc: Launch docker Compose to emulate lab
+        cmds:
+        - docker-compose up -d 
+    stop-lab:
+        desc: Remove all containers
+        cmds:
+        - docker-compose stop 
+        
+    scale-minion:
+        desc: Update the number of replicas of the image
+        cmds:
+        - docker-compose up -d --scale salt-minion={{.CLI_ARGS}}
+
+    sconnect-master:
+        desc : Create a connection to the salt master
+        cmds: 
+        - docker-compose exec salt-master bash
+    
+    sconnect-minion:
+        desc : Create a connection to the salt master
+        cmds: 
+        - docker-compose exec salt-master bash
+    slogs-master: 
+        desc: Show Docker logs for salt-master
+        cmds:
+        - docker-compose logs salt-master
+    
