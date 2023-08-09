@@ -1,5 +1,5 @@
 version: "3"
-    
+
 tasks:
     start-lab:
         desc: Launch docker Compose to emulate lab
@@ -9,7 +9,6 @@ tasks:
         desc: Remove all containers
         cmds:
         - docker-compose stop 
-        
     scale-minion:
         desc: Update the number of replicas of the image
         cmds:

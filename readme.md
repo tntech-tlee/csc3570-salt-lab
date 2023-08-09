@@ -19,7 +19,13 @@ In order to run this lab you will need to have the following components installe
 
 If you are using Taskgo you can simply run the following commands to create the lab that will create a salt-master box  and a salt-minion box.
 
-There is also an easy way to run this and is using [runme](https://runme.dev/), just run `runme` 
+## Using runme : 
+
+```sh
+runme
+```
+
+## Using Taskfiles : 
 
 ```sh {name=start}
 task -l 
@@ -35,6 +41,15 @@ Now we are ready to start launching salt commands.
 ```sh {name=connect}
 task sconnect-master    # This will give you a bash shell in the salt master box
 ```
+
+## Using Docker Compose : 
+
+```sh
+docker-compose up -d 
+docker-compose up -d --scale salt-minion=4
+docker-compose exec salt-master bash
+```
+
 ## Recommended Readings : 
 
 - https://docs.saltproject.io/salt/install-guide/en/latest/topics/before-you-start/check-network-ports.html
