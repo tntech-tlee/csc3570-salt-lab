@@ -22,7 +22,7 @@ tasks:
     sconnect-minion:
         desc : Create a connection to the salt master
         cmds: 
-        - docker-compose exec salt-master bash
+        - docker-compose exec salt-minion bash
     slogs-master: 
         desc: Show Docker logs for salt-master
         cmds:

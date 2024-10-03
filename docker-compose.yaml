@@ -21,6 +21,6 @@ services:
   salt-minion:
     build: ./salt-minion/
     deploy:
-      replicas: 2
+      replicas: 1
     depends_on:
       - salt-master
