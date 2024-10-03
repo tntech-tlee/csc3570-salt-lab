@@ -12,16 +12,14 @@ version: '3.7'
 services: 
   salt-master:
     hostname: salt-master 
-    build:
-      dockerfile: ./salt-master/Dockerfile
+    build: ./salt-master/
     healthcheck:
         test: ["CMD", "nc", "-vz", "localhost", "4506"]
         interval: 30s
         timeout: 10s
         retries: 5
   salt-minion:
-    build:
-      dockerfile: ./salt-minion/Dockerfile
+    build: ./salt-minion/
     deploy:
       replicas: 2
     depends_on:

@@ -1,4 +1,6 @@
-# Salt Lab 
+# Salt Lab
+
+Forked from https://github.com/hjimenez-godaddy/salt-lab
 
 This is a simple lab to test salt commands, features, templates etc. 
 
