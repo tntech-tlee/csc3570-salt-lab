@@ -5,9 +5,9 @@ SHELL ["/bin/bash", "-c"]
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update -y && apt-get install apt-utils wget gnupg -y
-RUN wget --no-check-certificate https://repo.saltproject.io/salt/py3/ubuntu/22.04/amd64/SALT-PROJECT-GPG-PUBKEY-2023.pub && \
-    apt-key add SALT-PROJECT-GPG-PUBKEY-2023.pub && \
-    rm SALT-PROJECT-GPG-PUBKEY-2023.pub 
+RUN wget --no-check-certificate https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public && \
+    apt-key add public && \
+    rm public
 
 RUN apt-get update -y && \
     apt-get install salt-minion salt-ssh -y && \
