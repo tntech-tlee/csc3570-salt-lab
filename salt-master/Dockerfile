@@ -5,11 +5,11 @@ SHELL ["/bin/bash", "-c"]
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update -y && apt-get install apt-utils wget gnupg -y
-RUN wget --no-check-certificate https://repo.saltproject.io/salt/py3/ubuntu/22.04/amd64/SALT-PROJECT-GPG-PUBKEY-2023.pub && \
-    apt-key add SALT-PROJECT-GPG-PUBKEY-2023.pub && \
-    rm SALT-PROJECT-GPG-PUBKEY-2023.pub 
+RUN wget --no-check-certificate https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public && \
+    apt-key add public && \
+    rm public
 
-RUN echo "deb https://repo.saltproject.io/salt/py3/ubuntu/22.04/amd64/3006 jammy main" > /etc/apt/sources.list.d/saltstack.list
+RUN echo "deb https://packages.broadcom.com/artifactory/saltproject-deb/ stable main" > /etc/apt/sources.list.d/saltstack.list
 RUN apt-get update -y 
 
 RUN apt-get install salt-master salt-minion salt-ssh salt-syndic salt-cloud salt-api -y && \
