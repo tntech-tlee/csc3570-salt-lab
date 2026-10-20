@@ -17,4 +17,6 @@ RUN apt-get install salt-master salt-minion salt-ssh salt-syndic salt-cloud salt
 
 RUN sed -i "s|#auto_accept: False|auto_accept: True|g" /etc/salt/master
 
+RUN echo "minimum_auth_version: 0" > /etc/salt/master.d/downgrade_auth.conf
+
 ENTRYPOINT ["salt-master", "-l", "debug"]
